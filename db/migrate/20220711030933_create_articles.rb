@@ -12,7 +12,7 @@ class CreateArticles < ActiveRecord::Migration[7.0]
       t.integer :stock
       t.references :brand, null: false, foreign_key: true
       t.references :category, null: false, foreign_key: true
-      t.references :subcategory, null: false, foreign_key: true
+      t.references :subcategory, null: true, foreign_key: true
 
       t.timestamps
     end

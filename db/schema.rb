@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_11_030933) do
     t.integer "stock"
     t.integer "brand_id", null: false
     t.integer "category_id", null: false
-    t.integer "subcategory_id", null: false
+    t.integer "subcategory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_articles_on_brand_id"
