@@ -14,5 +14,5 @@
 class Subcategory < ApplicationRecord
   belongs_to :category
 
-  validates :name, precense: true, length: { minimum: 3}
+  validates :name, presence: true, length: { minimum: 3}
 end

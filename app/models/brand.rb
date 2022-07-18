@@ -11,5 +11,5 @@
 #  updated_at  :datetime         not null
 #
 class Brand < ApplicationRecord
-  validates :name, precense: true, length: { minimum: 1}
+  validates :name, presence: true, length: { minimum: 1}
 end

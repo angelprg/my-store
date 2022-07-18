@@ -23,7 +23,7 @@ class Article < ApplicationRecord
   belongs_to :category
   belongs_to :subcategory
 
-  validates :name, precense: true, length: { minimum: 3}
-  validates :sku, precense: true, length: { minimum: 3}
-  validates :description, precense: true, length: { minimum: 3}
+  validates :name, presence: true, length: { minimum: 3}
+  validates :sku, presence: true, length: { minimum: 3}
+  validates :description, presence: true, length: { minimum: 3}
 end
