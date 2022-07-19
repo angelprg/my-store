@@ -7,12 +7,13 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p style="color: green" ><%= notice %></p>
+    <p style="color: red" class="alert"><%= alert %></p>
 
     <% if user_signed_in? %>    
       <p>Signed in as <%= link_to current_user.email, edit_user_registration_path %></p>

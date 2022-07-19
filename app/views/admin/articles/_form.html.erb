@@ -1,0 +1,60 @@
+<%= form_with(model: [:admin, article]) do |form| %>
+  <% if article.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :sku, style: "display: block" %>
+    <%= form.text_field :sku %>
+  </div>
+  <div>
+    <%= form.label :barcode, style: "display: block" %>
+    <%= form.text_field :barcode %>
+  </div>
+  <div>
+    <%= form.label :slug, style: "display: block" %>
+    <%= form.text_field :slug %>
+  </div>
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :published, style: "display: block" %>
+    <%= form.check_box :published %>
+  </div>
+  <div>
+    <%= form.label :visible, style: "display: block" %>
+    <%= form.check_box :visible %>
+  </div>
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price %>
+  </div>
+  <div>
+    <%= form.label :stock, style: "display: block" %>
+    <%= form.number_field :stock %>
+  </div>
+  <div>
+    <%= form.label :brand_id, style: "display: block" %>
+    <%= form.collection_select :brand_id, Brand.order(:name), :id, :name %>
+  </div>
+  <div>
+  <%= form.label :subcategory_id, style: "display: block" %>
+  <% options = option_groups_from_collection_for_select(Category.order(:name).all, :subcategories, :name, :id, :name, article.subcategory_id) %>
+  <%= select('article', :subcategory_id, options, include_blank: true) %>
+</div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
