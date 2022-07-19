@@ -1,9 +1,9 @@
-<h1>New brand</h1>
-
-<%= render "form", brand: @brand %>
-
-<br>
-
-<div>
-  <%= link_to "Back to brands", admin_brands_path %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'admin/sidebar' %>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <%= render partial: 'admin/header' , locals: {title: 'New brand'}%>
+      <%= render "form", brand: @brand %>
+    </main>
+  </div>
 </div>

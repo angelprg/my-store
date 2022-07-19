@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Subcategories</h1>
-
-<div id="subcategories">
-  <% @subcategories.each do |subcategory| %>
-    <%= render subcategory %>
-    <p>
-      <%= link_to "Show this subcategory", admin_subcategory_url(subcategory) %>
-    </p>
-  <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'admin/sidebar' %>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <%= render partial: 'admin/header' , locals: {title: 'Subcategories'} %>
+      <div id="subcategories">
+        <% @subcategories.each do |subcategory| %>
+          <%= render subcategory %>
+          <p>
+            <%= link_to "Show this subcategory", admin_subcategory_url(subcategory) %>
+          </p>
+        <% end %>
+      </div>
+      <%= link_to "New subcategory", new_admin_subcategory_path %>
+    </main>
+  </div>
 </div>
-
-<%= link_to "New subcategory", new_admin_subcategory_path %>

@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", admin_category_url(category) %>
-    </p>
-  <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'admin/sidebar' %>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <%= render partial: 'admin/header' , locals: {title: 'Categories'}%>
+      <div id="categories">
+        <% @categories.each do |category| %>
+          <%= render category %>
+          <p>
+            <%= link_to "Show this category", admin_category_url(category) %>
+          </p>
+        <% end %>
+      </div>
+      <%= link_to "New category", new_admin_category_path %>
+    </main>
+  </div>
 </div>
-
-<%= link_to "New category", new_admin_category_path %>

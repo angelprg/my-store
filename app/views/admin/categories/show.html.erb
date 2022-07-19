@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @category %>
-
-<div>
-  <%= link_to "Edit this category", edit_admin_category_path(@category) %> |
-  <%= link_to "Back to categories", admin_categories_path %>
-
-  <%= button_to "Destroy this category", admin_category_url(@category), method: :delete %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'admin/sidebar' %>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <%= render partial: 'admin/header' , locals: {title: 'Category detail'}%>
+      <%= render @category %>
+      <%= link_to "Edit this category", edit_admin_category_path(@category) %>
+      <%= button_to "Destroy this category", admin_category_url(@category), method: :delete %>
+    </main>
+  </div>
 </div>

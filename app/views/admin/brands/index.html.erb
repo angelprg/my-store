@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Brands</h1>
-
-<div id="brands">
-  <% @brands.each do |brand| %>
-    <%= render brand %>
-    <p>
-      <%= link_to "Show this brand", admin_brand_path(brand) %>
-    </p>
-  <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render 'admin/sidebar' %>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <%= render partial: 'admin/header' , locals: {title: 'Brands'}%>
+      <%= link_to "New brand", new_admin_brand_path %>
+      <div id="brands">
+        <% @brands.each do |brand| %>
+          <%= render brand %>
+          <p>
+            <%= link_to "Show this brand", admin_brand_path(brand) %>
+          </p>
+        <% end %>
+      </div>
+    </main>
+  </div>
 </div>
-
-<%= link_to "New brand", new_admin_brand_path %>

@@ -1,5 +1,4 @@
 <%= form_with(model: [:admin, brand]) do |form| %>
-<%# <%= admin_brand_path(brand.id) %> %>
   <% if brand.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
