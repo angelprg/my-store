@@ -34,8 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_011202) do
   create_table "brands", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "image"
-    t.string "cover_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,8 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_011202) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "image"
-    t.string "cover_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,8 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_011202) do
   create_table "subcategories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "image"
-    t.string "cover_image"
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
