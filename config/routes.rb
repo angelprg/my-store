@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get '/admin/dashboard', to: 'admin#dashboard'
   # Defines the root path route ("/")
 
-  root "articles#index"
+  root "pages#home"
 end
