@@ -50,10 +50,21 @@
     <%= form.collection_select :brand_id, Brand.order(:name), :id, :name %>
   </div>
   <div>
-  <%= form.label :subcategory_id, style: "display: block" %>
-  <% options = option_groups_from_collection_for_select(Category.order(:name).all, :subcategories, :name, :id, :name, article.subcategory_id) %>
-  <%= select('article', :subcategory_id, options, include_blank: true) %>
-</div>
+    <%= form.label :subcategory_id, style: "display: block" %>
+    <% options = option_groups_from_collection_for_select(Category.order(:name).all, :subcategories, :name, :id, :name, article.subcategory_id) %>
+    <%= select('article', :subcategory_id, options, include_blank: true) %>
+  </div>
+
+  <div>
+    <%= form.label :image_cover, style: "display: block" %>
+    <%= form.file_field :image_cover %>
+  </div>
+
+  <div>
+    <%= form.label :images, style: "display: block" %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
