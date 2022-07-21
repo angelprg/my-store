@@ -25,7 +25,9 @@ class Admin::ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
-    @article = Article.new(article_params)
+    a_params = article_params
+    a_params[:category_id] = Subcategory.find(a_params[:subcategory_id]).category_id
+    @article = Article.new(a_params)
 
     respond_to do |format|
       if @article.save

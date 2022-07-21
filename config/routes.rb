@@ -6,10 +6,11 @@ Rails.application.routes.draw do
     resources :categories
     resources :brands
   end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   get '/admin/dashboard', to: 'admin#dashboard'
-  # Defines the root path route ("/")
+  resources :articles, only: [:show]
 
+  # Defines the root path route ("/")
   root "pages#home"
 end
