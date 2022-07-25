@@ -14,7 +14,7 @@
 #  stock          :integer
 #  brand_id       :integer          not null
 #  category_id    :integer          not null
-#  subcategory_id :integer          not null
+#  subcategory_id :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
