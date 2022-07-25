@@ -1,6 +1,8 @@
 <div class="col">
   <div class="card shadow-sm home-card">
-    <%= image_tag url_for(article.image_cover) %>
+    <% if article.image_cover %>
+      <%= image_tag url_for(article.image_cover) %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= article.name %></h5>
       <p class="card-text"><%= article.description %></p>

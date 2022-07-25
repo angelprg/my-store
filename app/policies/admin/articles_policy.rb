@@ -1,15 +1,15 @@
 class Admin::ArticlesPolicy < ApplicationPolicy
 
   def show?
-    true
+    @user&.role == "admin"
   end
 
   def index?
-    true
+    @user&.role == "admin"
   end
 
   def new?
-    false
+    @user&.role == "admin"
   end
 
   def create?
@@ -17,7 +17,7 @@ class Admin::ArticlesPolicy < ApplicationPolicy
   end
 
   def edit?
-    false
+    @user&.role == "admin"
   end
 
   def update?
@@ -25,8 +25,11 @@ class Admin::ArticlesPolicy < ApplicationPolicy
   end
 
   def destroy?
-    false
+    @user&.role == "admin"
   end
 
+  private
+
+  
 
 end

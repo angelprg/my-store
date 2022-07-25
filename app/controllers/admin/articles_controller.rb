@@ -17,7 +17,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new
     @categories = Category.all
     @subcategories = Subcategory.all
-    authorize([:admin, Article], policy_class: Admin::ArticlesPolicy)
+    authorize([:admin, @article], policy_class: Admin::ArticlesPolicy)
   end
 
   # GET /articles/1/edit
@@ -32,6 +32,8 @@ class Admin::ArticlesController < ApplicationController
     a_params = article_params
     a_params[:category_id] = Subcategory.find(a_params[:subcategory_id]).category_id
     @article = Article.new(a_params)
+    
+    authorize([:admin, @article], policy_class: Admin::ArticlesPolicy)
 
     respond_to do |format|
       if @article.save
@@ -46,8 +48,11 @@ class Admin::ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
+    authorize([:admin, @article], policy_class: Admin::ArticlesPolicy)
+
     a_params = article_params
     a_params[:category_id] = Subcategory.find(a_params[:subcategory_id]).category_id
+
     respond_to do |format|
       if @article.update(a_params)
         format.html { redirect_to admin_article_url(@article), notice: "Article was successfully updated." }
@@ -61,6 +66,8 @@ class Admin::ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
+    authorize([:admin, @article], policy_class: Admin::ArticlesPolicy)
+    
     @article.destroy
 
     respond_to do |format|
