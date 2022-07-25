@@ -4,24 +4,29 @@ class Admin::BrandsController < ApplicationController
   # GET /brands or /brands.json
   def index
     @brands = Brand.all
+    authorize([:admin, @brands], policy_class: Admin::BrandsPolicy)
   end
 
   # GET /brands/1 or /brands/1.json
   def show
+    authorize([:admin, Brand], policy_class: Admin::BrandsPolicy)
   end
 
   # GET /brands/new
   def new
     @brand = Brand.new
+    authorize([:admin, @brand], policy_class: Admin::BrandsPolicy)
   end
 
   # GET /brands/1/edit
   def edit
+    authorize([:admin, @brand], policy_class: Admin::BrandsPolicy)
   end
 
   # POST /brands or /brands.json
   def create
     @brand = Brand.new(brand_params)
+    authorize([:admin, @brand], policy_class: Admin::BrandsPolicy)
 
     respond_to do |format|
       if @brand.save
@@ -36,6 +41,7 @@ class Admin::BrandsController < ApplicationController
 
   # PATCH/PUT /brands/1 or /brands/1.json
   def update
+    authorize([:admin, @brand], policy_class: Admin::BrandsPolicy)
     respond_to do |format|
       if @brand.update(brand_params)
         format.html { redirect_to admin_brand_url(@brand), notice: "Brand was successfully updated." }
@@ -49,6 +55,8 @@ class Admin::BrandsController < ApplicationController
 
   # DELETE /brands/1 or /brands/1.json
   def destroy
+    authorize([:admin, @brand], policy_class: Admin::BrandsPolicy)
+    
     @brand.destroy
 
     respond_to do |format|

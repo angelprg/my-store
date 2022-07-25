@@ -4,24 +4,29 @@ class Admin::CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
+    authorize([:admin, @categories], policy_class: Admin::CategoriesPolicy)
   end
 
   # GET /categories/1 or /categories/1.json
   def show
+    authorize([:admin, @category], policy_class: Admin::CategoriesPolicy)
   end
 
   # GET /categories/new
   def new
     @category = Category.new
+    authorize([:admin, @category], policy_class: Admin::CategoriesPolicy)
   end
 
   # GET /categories/1/edit
   def edit
+    authorize([:admin, @category], policy_class: Admin::CategoriesPolicy)
   end
 
   # POST /categories or /categories.json
   def create
     @category = Category.new(category_params)
+    authorize([:admin, @category], policy_class: Admin::CategoriesPolicy)
 
     respond_to do |format|
       if @category.save
@@ -36,6 +41,7 @@ class Admin::CategoriesController < ApplicationController
 
   # PATCH/PUT /categories/1 or /categories/1.json
   def update
+    authorize([:admin, @category], policy_class: Admin::CategoriesPolicy)
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to admin_category_url(@category), notice: "Category was successfully updated." }
@@ -49,6 +55,8 @@ class Admin::CategoriesController < ApplicationController
 
   # DELETE /categories/1 or /categories/1.json
   def destroy
+    authorize([:admin, @category], policy_class: Admin::CategoriesPolicy)
+    
     @category.destroy
 
     respond_to do |format|

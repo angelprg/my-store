@@ -1,4 +1,4 @@
-class Admin::ArticlesPolicy < ApplicationPolicy
+class Admin::CategoriesPolicy < ApplicationPolicy
 
   def show?
     @user&.role == "admin"

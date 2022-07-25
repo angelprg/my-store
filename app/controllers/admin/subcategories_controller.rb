@@ -4,24 +4,29 @@ class Admin::SubcategoriesController < ApplicationController
   # GET /subcategories or /subcategories.json
   def index
     @subcategories = Subcategory.all
+    authorize([:admin, @subcategories], policy_class: Admin::SubcategoriesPolicy)
   end
 
   # GET /subcategories/1 or /subcategories/1.json
   def show
+    authorize([:admin, @subcategory], policy_class: Admin::SubcategoriesPolicy)
   end
 
   # GET /subcategories/new
   def new
     @subcategory = Subcategory.new
+    authorize([:admin, @subcategory], policy_class: Admin::SubcategoriesPolicy)
   end
 
   # GET /subcategories/1/edit
   def edit
+    authorize([:admin, @subcategory], policy_class: Admin::SubcategoriesPolicy)
   end
 
   # POST /subcategories or /subcategories.json
   def create
     @subcategory = Subcategory.new(subcategory_params)
+    authorize([:admin, @subcategory], policy_class: Admin::SubcategoriesPolicy)
 
     respond_to do |format|
       if @subcategory.save
@@ -36,6 +41,8 @@ class Admin::SubcategoriesController < ApplicationController
 
   # PATCH/PUT /subcategories/1 or /subcategories/1.json
   def update
+    authorize([:admin, @subcategory], policy_class: Admin::SubcategoriesPolicy)
+
     respond_to do |format|
       if @subcategory.update(subcategory_params)
         format.html { redirect_to admin_subcategory_url(@subcategory), notice: "Subcategory was successfully updated." }
@@ -49,6 +56,8 @@ class Admin::SubcategoriesController < ApplicationController
 
   # DELETE /subcategories/1 or /subcategories/1.json
   def destroy
+    authorize([:admin, @subcategory], policy_class: Admin::SubcategoriesPolicy)
+    
     @subcategory.destroy
 
     respond_to do |format|
