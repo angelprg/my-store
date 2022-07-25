@@ -7,7 +7,6 @@
 #  sku            :string
 #  barcode        :string
 #  slug           :string
-#  description    :text
 #  published      :boolean          default(FALSE)
 #  visible        :boolean          default(FALSE)
 #  price          :integer

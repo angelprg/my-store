@@ -7,7 +7,6 @@
 #  sku            :string
 #  barcode        :string
 #  slug           :string
-#  description    :text
 #  published      :boolean          default(FALSE)
 #  visible        :boolean          default(FALSE)
 #  price          :integer
@@ -38,4 +37,7 @@ class Article < ApplicationRecord
     attachable.variant :card, resize_to_limit: [400, 400]
     attachable.variant :thumb, resize_to_limit: [150, 150]
   end
+
+  has_rich_text :description
+
 end
