@@ -4,10 +4,12 @@ class Admin::ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     @articles = Article.all
+    authorize([:admin, @articles], policy_class: Admin::ArticlesPolicy)
   end
-
+  
   # GET /articles/1 or /articles/1.json
   def show
+    authorize([:admin, Article], policy_class: Admin::ArticlesPolicy)
   end
 
   # GET /articles/new
@@ -15,12 +17,14 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new
     @categories = Category.all
     @subcategories = Subcategory.all
+    authorize([:admin, Article], policy_class: Admin::ArticlesPolicy)
   end
 
   # GET /articles/1/edit
   def edit
     @categories = Category.all
     @subcategories = Subcategory.all
+    authorize([:admin, @article], policy_class: Admin::ArticlesPolicy)
   end
 
   # POST /articles or /articles.json
