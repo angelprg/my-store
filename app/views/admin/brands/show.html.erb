@@ -4,8 +4,8 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <%= render partial: 'admin/header' , locals: {title: 'Brand detail'} %>
       <%= render @brand %>
-      <%= link_to "Edit this brand", edit_admin_brand_path(@brand) %>
-      <%= button_to "Destroy this brand", admin_brand_path(@brand), method: :delete %>
+      <%= link_to "Edit this brand", edit_admin_brand_path(@brand), class: "btn btn-info" %>
+      <%= link_to "Destroy this brand", admin_brand_path(@brand), method: :delete, class: "btn btn-danger" %>
     </main>
   </div>
 </div>

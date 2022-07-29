@@ -10,6 +10,7 @@
     <p><strong>Subcategory:</strong> <%= article.subcategory.name %></p>
     <p>
       <%= link_to "Show this article", admin_article_url(article), class:"btn btn-secondary" %>
+      <%= link_to "Edit this article", edit_admin_article_path(article), class: "btn btn-info" %>
     </p>
   </div>
 </div>

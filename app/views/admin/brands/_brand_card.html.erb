@@ -1,0 +1,10 @@
+<div class="card my-2">
+  <div class="card-body">
+    <h5 class="card-title">Name: <%= brand.name %></h5>
+    <p><strong>Description:</strong> <%= brand.description %></p>
+    <p>
+      <%= link_to "Show this brand", admin_brand_url(brand), class:"btn btn-secondary" %>
+      <%= link_to "Edit this brand", edit_admin_brand_path(brand), class: "btn btn-info" %>
+    </p>
+  </div>
+</div>

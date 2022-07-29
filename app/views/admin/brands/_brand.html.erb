@@ -1,12 +1,12 @@
 <div id="<%= dom_id brand %>">
-  <p>
-    <strong>Name:</strong>
-    <%= brand.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= brand.description %>
-  </p>
-
+  <table class="table table-striped table-hover table-responsive">
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= brand.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Description:</strong></td>
+      <td><%= brand.description %></td>
+    </tr>
+  </table>
 </div>
