@@ -5,8 +5,8 @@
       <%= render partial: 'admin/header' , locals: {title: 'Article detail'}%>
       <%= render @article %>
       <div>
-        <%= link_to "Edit this article", edit_admin_article_path(@article) %>
-        <%= button_to "Destroy this article", admin_article_url(@article), method: :delete %>
+        <%= link_to "Edit this article", edit_admin_article_path(@article), class: "btn btn-secondary" %>
+        <%= link_to "Destroy this article", admin_article_url(@article), method: :delete, class: "btn btn-danger" %>
       </div>
     </main>
   </div>

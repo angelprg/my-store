@@ -1,6 +1,20 @@
-.cover-image {
-  height: 400px;
-  width: 400px;
-  margin: auto;
-  object-fit: cover;
+.article {
+  .cover-image {
+    max-height: 400px;
+    max-width: 100%;
+    margin: auto;
+    object-fit: cover;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+  }
+
+  .breadcrumbs {
+    a {
+      text-decoration: none;
+      color: gray;
+    }
+    a:last-child {
+      color: black;
+    }
+  }
 }

@@ -4,13 +4,10 @@
     <%= render 'admin/sidebar' %>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <%= render partial: 'admin/header' , locals: {title: 'Articles'}%>
-      <%= link_to "New article", new_admin_article_path %>
+      <%= link_to "New article", new_admin_article_path, class: "btn btn-primary" %>
       <div id="articles">
         <% @articles.each do |article| %>
-          <%= render article %>
-          <p>
-            <%= link_to "Show this article", admin_article_url(article) %>
-          </p>
+          <%= render partial: "article_card", locals: {article: article} %>
         <% end %>
       </div>
     </main>

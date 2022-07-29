@@ -9,63 +9,67 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :sku, style: "display: block" %>
-    <%= form.text_field :sku %>
-  </div>
-  <div>
-    <%= form.label :barcode, style: "display: block" %>
-    <%= form.text_field :barcode %>
-  </div>
-  <div>
-    <%= form.label :slug, style: "display: block" %>
-    <%= form.text_field :slug %>
-  </div>
-  <div class="field">
-    <%= form.label :description, style: "display: block" %>
-    <%= form.rich_text_area :description %>
-  </div>
-  <div>
-    <%= form.label :published, style: "display: block" %>
-    <%= form.check_box :published %>
-  </div>
-  <div>
-    <%= form.label :visible, style: "display: block" %>
-    <%= form.check_box :visible %>
-  </div>
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-  <div>
-    <%= form.label :stock, style: "display: block" %>
-    <%= form.number_field :stock %>
-  </div>
-  <div>
-    <%= form.label :brand_id, style: "display: block" %>
-    <%= form.collection_select :brand_id, Brand.order(:name), :id, :name %>
-  </div>
-  <div>
-    <%= form.label :subcategory_id, style: "display: block" %>
+  <table class="table">
+  <tr>
+    <td><%= form.label "#{:name}: ", style: "display: block", class:"pe-2" %></td>
+    <td><%= form.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :sku, style: "display: block" %></td>
+    <td><%= form.text_field :sku %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :barcode, style: "display: block" %></td>
+    <td><%= form.text_field :barcode %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :slug, style: "display: block" %></td>
+    <td><%= form.text_field :slug %></td>
+  </tr>
+  <tr class="field">
+    <td><%= form.label :description, style: "display: block" %></td>
+    <td><%= form.rich_text_area :description %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :published, style: "display: block" %></td>
+    <td><%= form.check_box :published %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :visible, style: "display: block" %></td>
+    <td><%= form.check_box :visible %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :price, style: "display: block" %></td>
+    <td><%= form.number_field :price %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :stock, style: "display: block" %></td>
+    <td><%= form.number_field :stock %></td>
+  </tr>
+  <tr>
+    <td><%= form.label :brand_id, style: "display: block" %></td>
+    <td><%= form.collection_select :brand_id, Brand.order(:name), :id, :name %></td>
+  </tr>
+  <tr>
+    <td>Category / Subcategory</td>
+    <td>
     <% options = option_groups_from_collection_for_select(Category.order(:name).all, :subcategories, :name, :id, :name, article.subcategory_id) %>
     <%= select('article', :subcategory_id, options, include_blank: true) %>
+
+    </td>
   </div>
 
-  <div>
-    <%= form.label :image_cover, style: "display: block" %>
-    <%= form.file_field :image_cover %>
-  </div>
+  <tr>
+    <td><%= form.label :image_cover, style: "display: block" %></td>
+    <td><%= form.file_field :image_cover %></td>
+  </tr>
 
-  <div>
-    <%= form.label :images, style: "display: block" %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
+  <tr>
+    <td><%= form.label :images, style: "display: block" %></td>
+    <td><%= form.file_field :images, multiple: true %></td>
+  </tr>
 
-  <div>
-    <%= form.submit %>
-  </div>
+</table>
+    <td><%= form.submit class: "btn btn-success my-4" %></td>
+
 <% end %>

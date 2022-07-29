@@ -1,0 +1,15 @@
+<div class="card my-2">
+  <div class="card-body">
+    <h5 class="card-title">Name: <%= article.name %></h5>
+    <p class="card-text d-flex justify-content-between">
+      <span>Sku: <%= article.sku %></span>
+      <span>Price: <%= number_to_currency(article.price) %></span>
+    </p>
+    <p><strong>Brand:</strong> <%= article.brand.name %></p>
+    <p><strong>Category:</strong> <%= article.category.name %></p>
+    <p><strong>Subcategory:</strong> <%= article.subcategory.name %></p>
+    <p>
+      <%= link_to "Show this article", admin_article_url(article), class:"btn btn-secondary" %>
+    </p>
+  </div>
+</div>

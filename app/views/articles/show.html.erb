@@ -1,4 +1,33 @@
-<h1><%= @article.name %></h1>
-
-<%= image_tag @article.image_cover, class: 'cover-image' %>
-<%= @article.description %>
+<div class="bg-light d-flex align-items-stretch pt-5">
+  <div class="container article">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <div class="breadcrumbs text-muted">
+          <%= link_to @article.brand.name, :root %> /
+          <%= link_to @article.category.name, :root %> /
+          <%= link_to @article.subcategory.name, :root %>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 text-center mt-5 mb-3">
+        <%= image_tag @article.image_cover, class: 'cover-image' %>
+      </div>
+    </div>
+    <div class="row justify-content-center mb-3">
+      <div class="col-12 col-md-10 col-lg-8">
+        <h3 class="fw-bold"><%= number_to_currency @article.price %></h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <h1 class="fs-2"><%= @article.name %></h1>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <div class="fw-light"><%= @article.description %></div>
+      </div>
+    </div>
+  </div>
+</div>

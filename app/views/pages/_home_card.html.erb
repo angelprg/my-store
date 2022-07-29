@@ -4,12 +4,14 @@
       <%= image_tag url_for(article.image_cover) %>
     <% end %>
     <div class="card-body">
-      <h5 class="card-title"><%= article.name %></h5>
-      <div class="d-flex justify-content-between align-items-center">
+      <%= link_to article_path(article.id) do %>
+      <h5 class="card-title text-center"><%= article.name %></h5>
+      <% end%>
+      <div class="d-flex flex-column justify-content-between ">
+        <small class="text-muted text-center mb-1"><%= number_to_currency(article.price) %></small>
         <div class="btn-group">
           <%= link_to 'View', article_path(article.id), class: "btn btn-sm btn-outline-secondary" %>
         </div>
-        <small class="text-muted"><%= number_to_currency(article.price) %></small>
       </div>
     </div>
   </div>
