@@ -1,0 +1,10 @@
+<div class="card my-2">
+  <div class="card-body">
+    <h5 class="card-title">Name: <%= subcategory.name %></h5>
+    <p><strong>Description:</strong> <%= subcategory.description %></p>
+    <p>
+      <%= link_to "Show this subcategory", admin_subcategory_url(subcategory), class:"btn btn-secondary" %>
+      <%= link_to "Edit this subcategory", edit_admin_subcategory_path(subcategory), class: "btn btn-info" %>
+    </p>
+  </div>
+</div>

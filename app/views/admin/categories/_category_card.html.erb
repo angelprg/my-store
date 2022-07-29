@@ -1,0 +1,10 @@
+<div class="card my-2">
+  <div class="card-body">
+    <h5 class="card-title">Name: <%= category.name %></h5>
+    <p><strong>Description:</strong> <%= category.description %></p>
+    <p>
+      <%= link_to "Show this category", admin_category_url(category), class:"btn btn-secondary" %>
+      <%= link_to "Edit this category", edit_admin_category_path(category), class: "btn btn-info" %>
+    </p>
+  </div>
+</div>

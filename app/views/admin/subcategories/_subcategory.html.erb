@@ -1,17 +1,16 @@
 <div id="<%= dom_id subcategory %>">
-  <p>
-    <strong>Name:</strong>
-    <%= subcategory.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= subcategory.description %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= subcategory.category_id %>
-  </p>
-
+  <table class="table table-striped table-hover">
+    <tr>
+      <td><strong>Name:</strong></td>
+      <td><%= subcategory.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Description:</strong></td>
+      <td><%= subcategory.description %></td>
+    </tr>
+    <tr>
+      <td><strong>Category:</strong></td>
+      <td><%= subcategory.category_id %></td>
+    </tr>
+  </table>
 </div>
