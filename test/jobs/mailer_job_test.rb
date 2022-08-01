@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PrintJobTest < ActiveJob::TestCase
+class MailerJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end

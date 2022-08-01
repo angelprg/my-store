@@ -37,6 +37,7 @@ class Admin::ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        MailerJob.perform_later(@article, current_user, 'Created')
         format.html { redirect_to admin_article_url(@article), notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
@@ -55,6 +56,7 @@ class Admin::ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update(a_params)
+        MailerJob.perform_later(@article, current_user, 'Updated')
         format.html { redirect_to admin_article_url(@article), notice: "Article was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
       else
