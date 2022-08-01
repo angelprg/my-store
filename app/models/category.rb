@@ -10,14 +10,9 @@
 #
 class Category < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3}
+  validates :image_cover, presence: true
 
   has_many :subcategories
-
-  has_one_attached :image do |attachable|
-    attachable.variant :full, resize_to_limit: [1000, 1000]
-    attachable.variant :card, resize_to_limit: [400, 400]
-    attachable.variant :thumb, resize_to_limit: [150, 150]
-  end
 
   has_one_attached :image_cover do |attachable|
     attachable.variant :full, resize_to_limit: [1000, 1000]

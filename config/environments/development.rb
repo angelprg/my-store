@@ -33,6 +33,10 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+# Use a real queuing backend for Active Job (and separate queues per environment).
+config.active_job.queue_adapter     = :sidekiq
+# config.active_job.queue_name_prefix = "my_store_production"
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
@@ -44,6 +48,16 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => '9d9c25c14aa1c7',
+    :password => 'c93af092a80bc3',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

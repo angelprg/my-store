@@ -24,10 +24,6 @@
     <td><%= form.collection_select :category_id, Category.order(:name), :id, :name %></td>
   </tr>
   <tr>
-    <td><%= form.label :image, style: "display: block" %></td>
-    <td><%= form.file_field :image %></td>
-  </tr>
-  <tr>
     <td><%= form.label :image_cover, style: "display: block" %></td>
     <td><%= form.file_field :image_cover %></td>
   </tr>
