@@ -78,3 +78,5 @@ gem "pundit", "~> 2.2"
 gem "bootstrap", "~> 5.1"
 
 gem "sidekiq", "~> 6.5"
+
+gem "aws-sdk-s3", require: false
