@@ -1,5 +1,6 @@
 # README
 ### MyStore APP
+Demo: https://my-store-cf.herokuapp.com
 ## Articles catalog powered by Ruby on Rails
 # This app currently provides:
 - Brands catalog
